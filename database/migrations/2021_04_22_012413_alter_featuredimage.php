@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterImage extends Migration
+class AlterFeaturedimage extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AlterImage extends Migration
     public function up()
     {
         Schema::table('mahasiswa', function(Blueprint $table){
-            $table->string('featured_image')->nullable();
+            $table->string('Foto_Profil')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AlterImage extends Migration
     public function down()
     {
         Schema::table('mahasiswa', function(Blueprint $table){
-            $table->dropforeign('featured_image');
+            $table->dropforeign('Foto_Profil');
         });
     }
 }
