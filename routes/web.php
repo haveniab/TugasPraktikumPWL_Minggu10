@@ -19,13 +19,8 @@ use Illuminate\Support\Facades\Storage;
 //     return view('welcome');
 // });
 
+
+Auth::routes();
 Route::resource('mahasiswas', MahasiswaController::class);
 Route::get('mahasiswas/nilai/{mahasiswa}', [MahasiswaController::class, 'nilai'])->name('mahasiswas.showNilai');
-
-
-Route::get('mahasiswas/nim/{image}', function($image = null)
-{
-    $file = Storage::get('edit/' . $image);
-    $mimetype = Storage::mimeType('edit/' . $image);
-    return response($file, 100)->header('Content-Type', $mimetype);
-});
+Route::get('mahasiswas/nilai/{mahasiswa}/cetak_pdf', [MahasiswaController::class, 'cetak_pdf'])->name('mahasiswas.nilai_pdf');

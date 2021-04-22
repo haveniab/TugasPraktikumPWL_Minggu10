@@ -1,15 +1,13 @@
 @extends('mahasiswas.layout')
 @section('content')
-<div class="row justify-content-center">
-    <div class="col-sm-10">
-        <h3>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h3>
+<div class="container">
+    <div class="text-center">
+        <h3>JURUSAN TEKNOLOGI INFORMASI POLITEKNIK NEGERI MALANG</h3>
+        <br>
+        <h6>KARTU HASIL STUDI (KHS)</h2>
+        <br>
     </div>
-    <br><br>
-    <br><br>
-    <div class="col-sm-4">
-        <h3>KARTU HASIL STUDI(KHS)</h3>
-    </div>
-</div>
+
 @if($mahasiswa)
 <p><strong>Nim&nbsp;: </strong>{{ $mahasiswa->mahasiswa->Nim }}</p>
 <p><strong>Nama&nbsp;: </strong>{{ $mahasiswa->mahasiswa->Nama }}</p>
@@ -30,13 +28,9 @@
     <td>{{ $Nilai->matakuliah->nama_matkul }}</td>
         <td>{{ $Nilai->matakuliah->sks }}</td>
         <td>{{ $Nilai->matakuliah->semester }}</td>
-        
         <td>{{ $Nilai->nilai }}</td>
     </tr>
     @endforeach
     </table>
-    <center><a href="{{ route('mahasiswas.nilai_pdf',$mahasiswa->mahasiswa) }}"><button class="btn btn-danger">CETAK PDF ⇓⇓ </button></a></center>
-    <div class="row justify-content-end">
-        <a href="{{ route('mahasiswas.index') }}" class="btn btn-danger">Kembali</a>
-    </div>
+</div>
 @endsection
